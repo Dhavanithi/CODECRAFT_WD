@@ -1,0 +1,306 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Interactive Landing Page</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: 'Arial', sans-serif;
+            background: linear-gradient(135deg, #1d2b64, #f8cdda);
+            color: white;
+            overflow-x: hidden;
+        }
+        
+        nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            background: rgba(0, 0, 0, 0.6);
+            padding: 20px 0;
+            z-index: 100;
+            transition: background 0.3s ease;
+        }
+        
+        nav ul {
+            list-style: none;
+            display: flex;
+            justify-content: center;
+            margin: 0;
+            padding: 0;
+        }
+        
+        nav ul li {
+            margin: 0 25px;
+        }
+        
+        nav ul li a {
+            color: white;
+            text-decoration: none;
+            font-size: 18px;
+            padding: 10px 20px;
+            border-radius: 30px;
+            transition: transform 0.3s ease, background 0.3s ease;
+        }
+        
+        nav ul li a:hover {
+            background: rgba(255, 255, 255, 0.3);
+            transform: translateY(-5px);
+        }
+        
+        section {
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            padding: 20px;
+            opacity: 0;
+            transform: translateY(50px);
+            transition: opacity 0.6s ease, transform 0.6s ease;
+        }
+        
+        section.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        
+        #home {
+            background: linear-gradient(135deg, #6a11cb, #2575fc);
+        }
+        
+        #about {
+            background: linear-gradient(135deg, #f56a79, #d6a8ff);
+        }
+        
+        #services {
+            background: linear-gradient(135deg, #ff4e50, #f9d423);
+        }
+        
+        #contact {
+            background: linear-gradient(135deg, #ff9a8b, #ff6a88);
+        }
+        
+        .section-content {
+            max-width: 600px;
+            text-align: center;
+        }
+        
+        .section-content h2 {
+            font-size: 3em;
+            margin-bottom: 20px;
+        }
+        
+        .section-content p {
+            font-size: 1.2em;
+            line-height: 1.6;
+        }
+        
+        .section-button {
+            display: inline-block;
+            padding: 18px 35px;
+            background: linear-gradient(to right, #ff7e5f, #feb47b);
+            color: white;
+            text-decoration: none;
+            border-radius: 30px;
+            margin-top: 40px;
+            font-weight: bold;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        
+        .section-button:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.4);
+        }
+        
+        #login-form {
+            display: none;
+            background: rgba(0, 0, 0, 0.7);
+            padding: 20px;
+            border-radius: 10px;
+            width: 300px;
+            margin-top: 20px;
+            color: white;
+            text-align: left;
+        }
+        
+        #login-form h3 {
+            margin-bottom: 10px;
+        }
+        
+        #login-form label {
+            margin-top: 10px;
+            display: block;
+        }
+        
+        #login-form input {
+            width: 100%;
+            padding: 8px;
+            margin-top: 5px;
+            border: none;
+            border-radius: 4px;
+            color: black;
+        }
+        
+        #login-form button {
+            width: 100%;
+            background: linear-gradient(to right, #6a11cb, #2575fc);
+            color: white;
+            padding: 10px 15px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            margin-top: 15px;
+        }
+        
+        #login-message {
+            display: none;
+            background-color: #4CAF50;
+            color: white;
+            padding: 10px;
+            margin-bottom: 20px;
+            border-radius: 5px;
+            text-align: center;
+            position: fixed;
+            top: 10px;
+            left: 50%;
+            transform: translateX(-50%);
+            z-index: 1000;
+            width: 80%;
+            max-width: 600px;
+        }
+    </style>
+</head>
+
+<body>
+
+    <nav>
+        <ul>
+            <li><a href="#home" class="nav-link">Home</a></li>
+            <li><a href="#about" class="nav-link">About</a></li>
+            <li><a href="#services" class="nav-link">Services</a></li>
+            <li><a href="#contact" class="nav-link">Contact</a></li>
+        </ul>
+    </nav>
+
+    <section id="home" class="active">
+        <div class="section-content">
+            <h2>Welcome to Our Website</h2>
+            <p>We offer innovative solutions that help you grow.</p>
+            <a href="#about" class="section-button">Learn More</a>
+        </div>
+    </section>
+
+    <section id="about">
+        <div class="section-content">
+            <h2>About Us</h2>
+            <p>We are a passionate team of creators committed to bringing your ideas to life with cutting-edge technologies.</p>
+            <a href="#services" class="section-button">Explore Our Services</a>
+        </div>
+    </section>
+
+    <section id="services">
+        <div class="section-content">
+            <h2>Our Services</h2>
+            <p>From web development to branding, we offer a wide range of services tailored to your needs.</p>
+            <a href="#contact" class="section-button">Contact Us</a>
+        </div>
+    </section>
+
+    <section id="contact">
+        <div class="section-content">
+            <h2>Get in Touch</h2>
+            <p>We would love to hear from you! Reach out to us for collaborations or inquiries.</p>
+            <a href="#" class="section-button" id="loginButton">Login</a>
+            <div id="login-form">
+                <h3>Login</h3>
+                <label for="username">Username:</label>
+                <input type="text" id="username">
+                <label for="password">Password:</label>
+                <input type="password" id="password">
+                <button id="loginSubmit">Login</button>
+            </div>
+            <div id="login-message"></div>
+        </div>
+    </section>
+
+    <script>
+        const navLinks = document.querySelectorAll('.nav-link');
+        const sections = document.querySelectorAll('section');
+        const loginButton = document.getElementById('loginButton');
+        const loginForm = document.getElementById('login-form');
+        const loginSubmit = document.getElementById('loginSubmit');
+        const loginMessage = document.getElementById('login-message');
+
+        function setActiveSection() {
+            let current = '';
+            sections.forEach(section => {
+                const sectionTop = section.offsetTop;
+                const sectionHeight = section.clientHeight;
+                if (window.scrollY >= sectionTop - sectionHeight / 3) {
+                    current = section.getAttribute('id');
+                }
+            });
+
+            navLinks.forEach(link => {
+                link.classList.remove('active');
+                if (link.getAttribute('href') === `#${current}`) {
+                    link.classList.add('active');
+                }
+            });
+            sections.forEach(section => {
+                if (section.id === current) {
+                    section.classList.add('active');
+                } else {
+                    section.classList.remove('active');
+                }
+            });
+        }
+
+        window.addEventListener('scroll', setActiveSection);
+        setActiveSection();
+
+        loginButton.addEventListener('click', function(event) {
+            event.preventDefault();
+            if (loginForm.style.display === 'block') {
+                loginForm.style.display = 'none';
+                loginButton.textContent = "Login";
+            } else {
+                loginForm.style.display = 'block';
+                loginButton.textContent = "Close Login";
+            }
+        });
+
+        loginSubmit.addEventListener('click', function(event) {
+            event.preventDefault();
+            const username = document.getElementById('username').value;
+            const password = document.getElementById('password').value;
+
+            if (username && password) {
+                loginMessage.textContent = "Login Successful!";
+                loginMessage.style.backgroundColor = "#4CAF50";
+                loginMessage.style.display = "block";
+                setTimeout(function() {
+                    loginMessage.style.display = "none";
+                    loginForm.style.display = 'none';
+                    loginButton.textContent = "Login";
+                }, 3000);
+            } else {
+                loginMessage.textContent = "Please enter both username and password.";
+                loginMessage.style.backgroundColor = "#f44336";
+                loginMessage.style.display = "block";
+                setTimeout(function() {
+                    loginMessage.style.display = "none";
+                }, 3000);
+            }
+        });
+    </script>
+
+</body>
+
+</html>
